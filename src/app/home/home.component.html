@@ -1,0 +1,6 @@
+<h1>Welcome To
+  <br> BOOK SHARE
+</h1>
+
+<p *ngIf="!username" class="text-center">You are not Authenticated!! Please <a routerLink="/login">Login</a></p>
+<p *ngIf="username" class="text-center">Welcome, {{username}}</p>

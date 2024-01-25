@@ -1,0 +1,23 @@
+<form [formGroup]="signupForm">
+  <div class="mb-3">
+    <input class="form-control" type="text" name="login" id="login" placeholder="Enter your login"
+      formControlName="login" />
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="email" name="email" id="email" placeholder="Enter your email"
+      formControlName="email" />
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="password" name="password" id="password" placeholder="Enter your password"
+      formControlName="password" />
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="password" name="confirmPassword" id="confirmPassword"
+      placeholder="Confirm your password" formControlName="confirmPassword" />
+  </div>
+  <button class="w-100 btn btn-lg btn-primary" type="button" [disabled]="signupForm.invalid"
+    (click)="signup()">Signup</button>
+  <div *ngIf="message">{{ message }}
+    <a style="color: green;" routerLink="/login">Zaloguj się</a>
+  </div>
+</form>

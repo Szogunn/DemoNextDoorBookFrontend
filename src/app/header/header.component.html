@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark px-2">
+  <div class="side-nav-button p-2 me-3 text-light" (click)="SideNavToggle()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+  <a class="navbar-brand px-4" [routerLink]="'/home'">NextDoorBook</a>
+
+  <div class="navbar-collapse">
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+          Menu 1
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><a class="dropdown-item" href="#">Child1</a></li>
+          <li><a class="dropdown-item" href="#">Child2</a></li>
+          <li><a class="dropdown-item" href="#">Child3</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <form *ngIf="isLoggedIn" class="d-flex me-5">
+    <input class="form-controll me-2" type="search" placeholder="Search">
+    <button class="btn btn-outline-light" type="submit">Search</button>
+  </form>
+
+  <div *ngIf="isLoggedIn" class="profile-logo dropdown ">
+    <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
+      {{getUsername()}}
+    </button>
+    <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+      <li><a href="/profile" class="dropdown-item">Your profile</a></li>
+      <li><a href="/home" class="dropdown-item" (click)="logout()">Log out</a></li>
+    </div>
+  </div>
+
+  <span *ngIf="!isLoggedIn">
+    <button class="btn btn-outline-light" type="button" [routerLink]="['/signup']">Signup</button>
+    <button class="btn btn-outline-light" type="button" routerLink="/login">Login</button>
+  </span>
+</nav>
