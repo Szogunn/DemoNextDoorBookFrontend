@@ -1,0 +1,26 @@
+<form [formGroup]="addBookForm">
+  <div class="mb-3">
+    <input class="form-control" type="text" name="title" id="title" placeholder="Title" formControlName="title" />
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="text" name="ISBN" id="ISBN" placeholder="ISBN" formControlName="ISBN" />
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="text" name="language" id="language" placeholder="language"
+      formControlName="language" />
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="date" name="publishedYear" id="publishedYear" placeholder="Published Date"
+      formControlName="publishedYear" />
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="text" name="publisher" id="publisher" placeholder="publisher"
+      formControlName="publisher" />
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="number" name="numPages" id="numPages" placeholder="Pages amount"
+      formControlName="numPages" />
+  </div>
+  <button class="w-100 btn btn-lg btn-primary" type="button" [disabled]="addBookForm.invalid"
+    (click)="addBook()">Dodaj</button>
+</form>

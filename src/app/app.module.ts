@@ -12,6 +12,7 @@ import { SignupComponent } from './signup/signup.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AddBookComponent } from './add-book/add-book.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     LoginComponent,
     SignupComponent,
     DashboardComponent,
-    SideNavComponent
+    SideNavComponent,
+    AddBookComponent
   ],
   imports: [
     BrowserModule,
