@@ -16,7 +16,7 @@ export class SideNavComponent implements OnInit {
       icon: 'fa-solid fa-house',
     },
     {
-      routing: '/bookshelf',
+      routing: '/bookshelf/add',
       name: 'Bookshelf',
       icon: 'fa-solid fa-book',
     },

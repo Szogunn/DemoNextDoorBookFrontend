@@ -1,0 +1,22 @@
+<table id="example" class="table table-striped" style="width:100%">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>ISBN</th>
+      <th>Language</th>
+      <th>Wydawca</th>
+      <th>Data publikacji</th>
+      <th>Ilość stron</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of books">
+      <td>{{ item.title }}</td>
+      <td>{{ item.ISBN }}</td>
+      <td>{{ item.language }}</td>
+      <td>{{ item.publisher }}</td>
+      <td>{{ item.publishedYear }}</td>
+      <td>{{ item.numPages }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -18,4 +18,10 @@ export class BookService {
     return this.httpClient.post(url + "/add", book)
   }
 
+  showBooks(): Observable<any> {
+    console.log("wywołane");
+
+    return this.httpClient.get(url + "/show")
+  }
+
 }
