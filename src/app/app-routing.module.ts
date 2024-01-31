@@ -7,6 +7,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AppComponent } from './app.component';
 import { AddBookComponent } from './add-book/add-book.component';
 import { ShowBooksComponent } from './show-books/show-books.component';
+import { BookInformationComponent } from './book-information/book-information.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,7 +17,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'bookshelf/add', component: AddBookComponent },
-  { path: 'bookshelf/show', component: ShowBooksComponent }
+  { path: 'bookshelf/show', component: ShowBooksComponent },
+  { path: 'book', component: BookInformationComponent },
+  { path: 'profile', component: ProfileComponent }
 ];
 
 @NgModule({

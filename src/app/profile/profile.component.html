@@ -1,0 +1,19 @@
+<form [formGroup]="formAddress" *ngIf="isAuth">
+  <div class="mb-3">
+    <input class="form-control" type="text" name="city" id="city" placeholder="City" formControlName="city" />
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="text" name="street" id="street" placeholder="Street" formControlName="street" />
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="text" name="houseNumber" id="houseNumber" placeholder="House Number"
+      formControlName="houseNumber" />
+  </div>
+  <div class="mb-3">
+    <input class="form-control" type="text" name="zipCode" id="zipCode" placeholder="Zip Code"
+      formControlName="zipCode" />
+  </div>
+  <button class="w-100 btn btn-lg btn-primary" type="button" [disabled]="formAddress.invalid"
+    (click)="addAddress()">Dodaj</button>
+  <p style="color: green;" *ngIf="isAuth">{{ message }}</p>
+</form>

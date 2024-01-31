@@ -2,9 +2,16 @@
   <ul class="nav-list" [ngClass]="{'nav-list-open': sideNavStatus}">
     <li class="nav-list-item" *ngFor=" let item of list">
       <i class="{{item.icon}}"></i>
-      <span>
+      <span class="nav-item">
         <a [routerLink]="[item.routing]">{{item.name}}</a>
+        <!-- Add sublist if it exists -->
+        <ul class="sublist" *ngIf="item.sublist.length > 0">
+          <li *ngFor="let subitem of item.sublist">
+            <a [routerLink]="[subitem.routing]">{{subitem.name}}</a>
+          </li>
+        </ul>
       </span>
+
     </li>
   </ul>
 </div>

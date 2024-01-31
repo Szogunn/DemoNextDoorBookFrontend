@@ -1,19 +1,8 @@
 import { Component, OnInit, PipeTransform } from '@angular/core';
 import { BookService } from '../services/book.service';
 import { TokenStorageService } from '../services/token-storage.service';
-import DataTable from 'datatables.net-dt';
-import { AsyncPipe, DecimalPipe } from '@angular/common';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { Observable, map } from 'rxjs';
+import { Book } from '../models/Book';
 
-interface Book {
-  Title: string;
-  ISBN: string;
-  Language: string;
-  publicationDate: Date
-  Wydawca: string;
-  numPages: number
-}
 
 @Component({
   selector: 'app-show-books',
@@ -21,8 +10,9 @@ interface Book {
   styleUrls: ['./show-books.component.scss']
 })
 export class ShowBooksComponent implements OnInit {
-  books: any[];
+  books: Book[];
   isAuth: boolean;
+  myBook: boolean = true;
 
 
   constructor(private bookService: BookService,
@@ -31,13 +21,26 @@ export class ShowBooksComponent implements OnInit {
 
   ngOnInit() {
     this.isAuth = this.tokenStorage.isLoggedIn();
+    if (this.isAuth) {
+      this.onCheckboxChange();
+    }
 
-    this.bookService.showBooks().subscribe((response: any[]) => {
-      this.books = response;
-    });
 
   }
 
+  onCheckboxChange() {
+    this.books = []
+    if (this.myBook) {
+      this.bookService.showBooks().subscribe((response: Book[]) => {
+        this.books = response;
+      });
+    } else {
+      this.bookService.showNeighboursBooks().subscribe(
+        (response) => {
+          this.books = response;
+        });
+    }
+  }
 
 
 

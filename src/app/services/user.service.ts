@@ -19,6 +19,10 @@ export class UserService {
     return this.httpClient.post(this.url + "/user/login", loginRequest)
   }
 
+  public addAddress(address: any): Observable<any> {
+    return this.httpClient.post(this.url + "/user/add-address", address)
+  }
+
   public test(): Observable<any> {
     return this.httpClient.get(this.url + "/test", {
       headers: this.createAuthorizationHeader()

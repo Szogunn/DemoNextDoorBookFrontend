@@ -19,9 +19,11 @@ export class BookService {
   }
 
   showBooks(): Observable<any> {
-    console.log("wywołane");
-
     return this.httpClient.get(url + "/show")
+  }
+
+  showNeighboursBooks(): Observable<any> {
+    return this.httpClient.get(url + "/showNeighbours")
   }
 
 }

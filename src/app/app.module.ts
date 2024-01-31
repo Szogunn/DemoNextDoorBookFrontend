@@ -14,6 +14,8 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AddBookComponent } from './add-book/add-book.component';
 import { ShowBooksComponent } from './show-books/show-books.component';
+import { BookInformationComponent } from './book-information/book-information.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -27,7 +29,9 @@ import { ShowBooksComponent } from './show-books/show-books.component';
     DashboardComponent,
     SideNavComponent,
     AddBookComponent,
-    ShowBooksComponent
+    ShowBooksComponent,
+    BookInformationComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

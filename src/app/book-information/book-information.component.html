@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ book.title }}</h5>
+    <p class="card-text"><strong>ISBN:</strong> {{ book.ISBN }}</p>
+    <p class="card-text"><strong>Language:</strong> {{ book.language }}</p>
+    <p class="card-text"><strong>Published Year:</strong> {{ book.publishedYear | date }}</p>
+    <p class="card-text"><strong>Publisher:</strong> {{ book.publisher }}</p>
+    <p class="card-text"><strong>Number of Pages:</strong> {{ book.numPages }}</p>
+    <p class="card-text"><strong>Owner:</strong> {{ book.owner }}</p>
+  </div>
+</div>
+
+<form [formGroup]="exchangeForm">
+  <div class="mb-3">
+    <label> Wprowadź do kiedy chcesz wypożyczyć książkę</label>
+    <input class="form-control" type="date" name="endRent" id="endRent" placeholder="Enter end of book rental"
+      formControlName="endRent" />
+  </div>
+  <button type="button" class="btn btn-primary" (click)="exchange()">Wypożycz</button>
+  <p style="color: green;" *ngIf="message">{{ message }}</p>
+</form>

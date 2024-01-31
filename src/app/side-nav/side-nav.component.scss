@@ -48,3 +48,41 @@ a {
   text-decoration: none;
   color: white;
 }
+
+.nav-item {
+  position: relative;
+  /* Ustaw relatywną pozycję */
+}
+
+.sublist {
+  list-style: none;
+  position: absolute;
+  /* Ustaw absolutną pozycję */
+
+  /* Przesuń pod główny element */
+  left: 50%;
+  /* Wyśrodkuj w poziomie */
+  display: none;
+  /* Ukryj domyślnie */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Dodaj tło dla sublisty */
+  padding: 10px;
+  /* Dodaj wypełnienie dla sublisty */
+  z-index: 1000;
+  /* Ustaw wysoki indeks warstwy */
+}
+
+.nav-item:hover .sublist {
+  display: block;
+  /* Pokaż sublistę po najechaniu na główny element */
+}
+
+.sublist li {
+  margin-bottom: 5px;
+  /* Dostosuj odstęp między elementami sublisty */
+}
+
+.sublist a {
+  color: white;
+  /* Dopasuj kolor do głównej nawigacji */
+}
