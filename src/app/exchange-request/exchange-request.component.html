@@ -1,0 +1,37 @@
+<table class="table table-striped" style="width:100%">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>ISBN</th>
+      <th>Language</th>
+      <th>Wydawca</th>
+      <th>Data publikacji</th>
+      <th>Ilość stron</th>
+      <th>Koniec wypożyczenia</th>
+      <th>Status</th>
+      <th>Wypożyczający</th>
+      <th>Akceptuj/Odrzuć</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of exchanges">
+      <td>{{ item.bookDTO.title }}</td>
+      <td>{{ item.bookDTO.ISBN }}</td>
+      <td>{{ item.bookDTO.language }}</td>
+      <td>{{ item.bookDTO.publisher }}</td>
+      <td>{{ item.bookDTO.publishedYear }}</td>
+      <td>{{ item.bookDTO.numPages}}</td>
+      <td>{{ item.endRent}}</td>
+      <td>{{ item.exchangeStatus}}</td>
+      <td [routerLink]="['/user', item.renter.id]" class="text-primary" [ngStyle]="{ 'cursor': 'pointer' }">
+        {{ item.renter.login }}
+      </td>
+      <td class="button-container">
+        <button class="btn btn-primary m-2" type="button"
+          (click)="changeExchangeStatus(item.id, acceptStatus)">ACCEPT</button>
+        <button class="btn btn-primary" type="button"
+          (click)="changeExchangeStatus(item.id, rejectStatus)">REJECT</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

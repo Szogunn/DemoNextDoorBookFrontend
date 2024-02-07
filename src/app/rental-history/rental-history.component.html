@@ -1,0 +1,41 @@
+<div *ngFor="let status of exchangeStatuses">
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" id="{{status}}" [(ngModel)]="selectedStatuses[status]">
+    <label class="form-check-label" for="{{status}}">{{status}}</label>
+  </div>
+</div>
+
+<button class="btn btn-primary" (click)="getUserRentalHisotry()" [disabled]="!hasSelectedStatuses()">Zatwierdź</button>
+
+
+<table class="table table-striped" style="width:100%">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>ISBN</th>
+      <th>Language</th>
+      <th>Wydawca</th>
+      <th>Data publikacji</th>
+      <th>Ilość stron</th>
+      <th>Start wypożyczenia</th>
+      <th>Koniec wypożyczenia</th>
+      <th>Status</th>
+      <th>Wypożyczający</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of exchanges">
+      <td>{{ item.bookDTO.title }}</td>
+      <td>{{ item.bookDTO.ISBN }}</td>
+      <td>{{ item.bookDTO.language }}</td>
+      <td>{{ item.bookDTO.publisher }}</td>
+      <td>{{ item.bookDTO.publishedYear }}</td>
+      <td>{{ item.bookDTO.numPages }}</td>
+      <td>{{ item.startRent }}</td>
+      <td>{{ item.endRent}}</td>
+      <td>{{ item.exchangeStatus }}</td>
+      <td>{{item.renter.login}}</td>
+    </tr>
+  </tbody>
+
+</table>

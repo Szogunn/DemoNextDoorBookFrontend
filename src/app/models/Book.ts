@@ -1,3 +1,6 @@
+import { UserDTO } from "./UserDTO";
+
+
 export interface Book {
   id: number;
   title: string;
@@ -6,5 +9,5 @@ export interface Book {
   publishedYear: Date
   publisher: string;
   numPages: number
-  owner: string
+  userDTO: UserDTO
 }

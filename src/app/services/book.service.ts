@@ -25,5 +25,8 @@ export class BookService {
   showNeighboursBooks(): Observable<any> {
     return this.httpClient.get(url + "/showNeighbours")
   }
+  getBook(bookId: number): Observable<any> {
+    return this.httpClient.get(url + `/get/${bookId}`)
+  }
 
 }

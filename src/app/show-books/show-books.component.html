@@ -27,8 +27,9 @@
       <td>{{ item.publisher }}</td>
       <td>{{ item.publishedYear }}</td>
       <td>{{ item.numPages }}</td>
-      <td *ngIf="!myBook">{{item.owner}}</td>
-      <button *ngIf="!myBook" [routerLink]="['/book', item]">Kliknij</button>
+      <td *ngIf="!myBook" [routerLink]="['/user', item.userDTO.id]" class="text-primary"
+        [ngStyle]="{ 'cursor': 'pointer' }">{{item.userDTO.login}}</td>
+      <button *ngIf="!myBook" [routerLink]="['/book', item.id]">Kliknij</button>
     </tr>
   </tbody>
 </table>

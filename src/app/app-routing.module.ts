@@ -9,6 +9,8 @@ import { AddBookComponent } from './add-book/add-book.component';
 import { ShowBooksComponent } from './show-books/show-books.component';
 import { BookInformationComponent } from './book-information/book-information.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RentalHistoryComponent } from './rental-history/rental-history.component';
+import { ExchangeRequestComponent } from './exchange-request/exchange-request.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -18,8 +20,10 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'bookshelf/add', component: AddBookComponent },
   { path: 'bookshelf/show', component: ShowBooksComponent },
-  { path: 'book', component: BookInformationComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: 'book/:id', component: BookInformationComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'exchange/hisotry', component: RentalHistoryComponent },
+  { path: 'exchange/request', component: ExchangeRequestComponent }
 ];
 
 @NgModule({

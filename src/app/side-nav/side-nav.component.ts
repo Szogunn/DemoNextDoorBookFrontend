@@ -32,10 +32,16 @@ export class SideNavComponent implements OnInit {
           icon: 'fa-solid fa-house'
         },
         {
-          routing: '/bookshelf/show',
-          name: 'Show my neighbours books',
+          routing: '/exchange/hisotry',
+          name: 'Show my rental history',
           icon: 'fa-solid fa-house'
-        }]
+        },
+        {
+          routing: '/exchange/request',
+          name: 'Pending notifications',
+          icon: 'fa-solid fa-house'
+        }
+      ]
     },
     {
       routing: '3',

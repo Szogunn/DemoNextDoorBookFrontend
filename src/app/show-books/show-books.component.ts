@@ -32,6 +32,8 @@ export class ShowBooksComponent implements OnInit {
     this.books = []
     if (this.myBook) {
       this.bookService.showBooks().subscribe((response: Book[]) => {
+        console.log(response);
+
         this.books = response;
       });
     } else {

@@ -6,7 +6,7 @@
     <p class="card-text"><strong>Published Year:</strong> {{ book.publishedYear | date }}</p>
     <p class="card-text"><strong>Publisher:</strong> {{ book.publisher }}</p>
     <p class="card-text"><strong>Number of Pages:</strong> {{ book.numPages }}</p>
-    <p class="card-text"><strong>Owner:</strong> {{ book.owner }}</p>
+    <p class="card-text"><strong>Owner:</strong> {{ book.userDTO.login }}</p>
   </div>
 </div>
 

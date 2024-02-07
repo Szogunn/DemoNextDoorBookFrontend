@@ -1,8 +1,10 @@
+import { UserDTO } from './../models/UserDTO';
 import { ExchangeService } from './../services/exchange.service';
 import { Component, Input } from '@angular/core';
 import { Book } from '../models/Book';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-book-information',
@@ -16,20 +18,15 @@ export class BookInformationComponent {
 
   constructor(private route: ActivatedRoute,
     private exchangeService: ExchangeService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private bookService: BookService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.book = {
-        id: parseInt(params.get('id')),
-        title: params.get('title'),
-        ISBN: params.get('ISBN'),
-        language: params.get('language'),
-        publishedYear: new Date(Date.parse(params.get('publishedYear'))),
-        publisher: params.get('publisher'),
-        numPages: parseInt(params.get('numPages')),
-        owner: params.get('owner')
-      };
+      const id = parseInt(params.get('id'))
+      console.log(id);
+
+      this.getBook(id);
     });
 
     this.exchangeForm = this.fb.group({
@@ -37,12 +34,23 @@ export class BookInformationComponent {
     })
   }
 
-  exchange() {
-    console.log(this.exchangeForm.value);
-    this.exchangeService.exchange(this.book.id, this.exchangeForm.value.endRent).subscribe(
-      (res) => {
-        this.message = res.message;
+  getBook(id: number) {
+    this.bookService.getBook(id).subscribe({
+      next: (response) => {
+        this.book = response;
       }
-    )
+    })
+  }
+
+  exchange() {
+    this.exchangeService.exchange(this.book.id, this.exchangeForm.value.endRent).subscribe({
+      next: (res) => {
+        this.message = res.message;
+      }, error: (err) => {
+        if (err.status === 409) {
+          this.message = err.message;
+        }
+      }
+    })
   }
 }

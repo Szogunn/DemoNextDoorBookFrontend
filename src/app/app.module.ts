@@ -16,6 +16,8 @@ import { AddBookComponent } from './add-book/add-book.component';
 import { ShowBooksComponent } from './show-books/show-books.component';
 import { BookInformationComponent } from './book-information/book-information.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RentalHistoryComponent } from './rental-history/rental-history.component';
+import { ExchangeRequestComponent } from './exchange-request/exchange-request.component';
 
 
 
@@ -31,7 +33,9 @@ import { ProfileComponent } from './profile/profile.component';
     AddBookComponent,
     ShowBooksComponent,
     BookInformationComponent,
-    ProfileComponent
+    ProfileComponent,
+    RentalHistoryComponent,
+    ExchangeRequestComponent
   ],
   imports: [
     BrowserModule,
