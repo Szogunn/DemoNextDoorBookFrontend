@@ -34,7 +34,8 @@
       <td>{{ item.startRent }}</td>
       <td>{{ item.endRent}}</td>
       <td>{{ item.exchangeStatus }}</td>
-      <td>{{item.renter.login}}</td>
+      <td [routerLink]="['/user', item.renter.id]" class="text-primary" [ngStyle]="{ 'cursor': 'pointer' }">
+        {{item.renter.login}}</td>
     </tr>
   </tbody>
 

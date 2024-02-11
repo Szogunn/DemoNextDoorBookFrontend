@@ -11,6 +11,7 @@ import { BookInformationComponent } from './book-information/book-information.co
 import { ProfileComponent } from './profile/profile.component';
 import { RentalHistoryComponent } from './rental-history/rental-history.component';
 import { ExchangeRequestComponent } from './exchange-request/exchange-request.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'book/:id', component: BookInformationComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'exchange/hisotry', component: RentalHistoryComponent },
-  { path: 'exchange/request', component: ExchangeRequestComponent }
+  { path: 'exchange/request', component: ExchangeRequestComponent },
+  { path: 'user/:id', component: UserProfileComponent }
 ];
 
 @NgModule({

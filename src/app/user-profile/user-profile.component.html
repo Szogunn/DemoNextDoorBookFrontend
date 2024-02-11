@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-body">
+    <h1 class="card-title">{{ user.login }}</h1>
+    <div class="d-flex align-items-center">
+      <i class="fa-solid fa-star"></i>
+      <h1 class="card-text">{{ user.rate }}</h1>
+    </div>
+
+    <div *ngIf="address">
+      <p class="card-text"><strong>Miasto:</strong> {{ address.city }}</p>
+      <p class="card-text"><strong>Numer domu:</strong> {{ address.houseNumber}}</p>
+      <p class="card-text"><strong>Ulica:</strong> {{ address.street }}</p>
+      <p class="card-text"><strong>Kod pocztowy:</strong> {{ address.zipCode }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <p class="card-text"><strong>Ilość książek na półce:</strong> {{ mojaMapa.get('bookAmount') }}</p>
+    <p class="card-text"><strong>Ilość udzielonych wypożyczeń książek:</strong> {{ mojaMapa.get('booksBorrowedAmount')
+      }}</p>
+    <p class="card-text"><strong>Ilość wypożyczeń książek od innych użytkowników:</strong> {{
+      mojaMapa.get('booksLentAmount') }}</p>
+  </div>
+</div>

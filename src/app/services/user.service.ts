@@ -29,6 +29,11 @@ export class UserService {
     });
   }
 
+  public getUserProfile(id: number): Observable<any> {
+    const params = { statuses: id };
+    return this.httpClient.get(this.url + `/user/${id}`);
+  }
+
   private createAuthorizationHeader() {
     const jwtToken = localStorage.getItem('JWT')
     if (jwtToken) {
